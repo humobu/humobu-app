@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">humobu</string>
+    <string name="title_activity_main">humobu</string>
+    <string name="package_name">br.com.humobu</string>
+    <string name="custom_url_scheme">br.com.humobu</string>
+
+    <string name="fb_app_id">790558231494835</string>
+    <string name="fb_app_name">Login com Facebook</string>
+</resources>
