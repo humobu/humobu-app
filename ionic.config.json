@@ -1,0 +1,7 @@
+{
+  "name": "humobu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
