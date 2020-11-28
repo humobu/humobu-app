@@ -7,7 +7,11 @@
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
-    }
+    },
+    "TwitterPlugin": {
+      "consumerKey": "c6MLFLOYSgo2layWpr0OLoRct",
+      "consumerSecret":  "Ub4K9TIrR7N0j9jdgJDBthkPyQVEKB6HaWIfxk0IYuIHAYveXC"
+      }
   },
   "cordova": {}
 }

@@ -8,7 +8,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class LoginFacebookService {
 
   user: Observable<firebase.default.User>;
   userLocal;

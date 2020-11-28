@@ -7,4 +7,6 @@
 
     <string name="fb_app_id">790558231494835</string>
     <string name="fb_app_name">Login com Facebook</string>
+    <string name="twitter_consumer_key">1332122415854481409-z9fFbzVRNNFaiojdF7Kvgxef6Zlv3v</string>
+    <string name="twitter_consumer_secret">7pigpjEmkxOb1a2QGWYyfbykoluKP0AUnBYbul7dEdoBF</string>
 </resources>

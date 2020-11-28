@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { Facebook } from '@ionic-native/facebook/ngx';
+import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
 import { AngularFireModule } from '@angular/fire';
 
 const firebaseConfig = {
@@ -33,7 +34,8 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Facebook
+    Facebook,
+    TwitterConnect
   ],
   bootstrap: [AppComponent]
 })

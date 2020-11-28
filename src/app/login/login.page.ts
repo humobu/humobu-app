@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { LoginService } from '../services/login.service';
+import { LoginFacebookService } from '../services/login-facebook.service';
+import { LoginTwitterService } from '../services/login-twitter.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { LoginService } from '../services/login.service';
 export class LoginPage {
 
   constructor(
-    private loginService: LoginService,
+    private loginFacebookService: LoginFacebookService,
+    private loginTwitterService: LoginTwitterService,
     private toastController: ToastController
   ) { }
 
@@ -20,7 +22,7 @@ export class LoginPage {
 
   async loginUsingFacebook() {
     try {
-      const login = await this.loginService.loginWithFacebook();
+      const login = await this.loginFacebookService.loginWithFacebook();
 
       console.log(login.additionalUserInfo.profile);
     } catch (error) {
@@ -29,6 +31,24 @@ export class LoginPage {
       const toast = await this.toastController.create({
         animated: true,
         message: 'Erro ao realizar login com o Facebook, tente novamente',
+        duration: 3000
+      });
+
+      toast.present();
+    }
+  }
+
+  async loginUsingTwitter() {
+    try {
+      const login = await this.loginTwitterService.loginWithTwitter();
+
+      console.log(login.additionalUserInfo.profile);
+    } catch (error) {
+      console.error(error);
+
+      const toast = await this.toastController.create({
+        animated: true,
+        message: 'Erro ao realizar login com o Twitter, tente novamente',
         duration: 3000
       });
 
