@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AngularFireModule } from '@angular/fire';
 
 const firebaseConfig = {
@@ -35,7 +36,8 @@ const firebaseConfig = {
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Facebook,
-    TwitterConnect
+    TwitterConnect,
+    GooglePlus
   ],
   bootstrap: [AppComponent]
 })
