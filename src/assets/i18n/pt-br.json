@@ -3,8 +3,10 @@
     "CADASTRAR": "Cadastrar",
     "CADASTRAR_FACEBOOK": "Cadastrar com Facebook",
     "CADASTRAR_GOOGLE": "Cadastrar com Google",
-    "EMAILOULOGIN": "Email ou Login",
+    "EMAIL_OU_LOGIN": "Email ou Login",
     "EMAIL": "Email",
     "SENHA": "Senha",
-    "REPETIRSENHA": "Repetir senha"
+    "REPETIR_SENHA": "Repetir senha",
+    "NOME": "Nome",
+    "SOBRENOME": "Sobrenome"
 }

@@ -5,43 +5,44 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-grid>
     <ion-row>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="floating">{{ 'EMAILOULOGIN' | translate }}</ion-label>
-          <ion-input></ion-input>
+          <ion-icon name="person-outline" class="ion-padding-end"></ion-icon>
+          <ion-input type="text" placeholder="{{ 'EMAIL_OU_LOGIN' | translate }}"></ion-input>  
         </ion-item>
         <ion-item>
-          <ion-label position="floating">{{ 'SENHA' | translate }}</ion-label>
-          <ion-input></ion-input>
+            <ion-icon name="key-outline" class="ion-padding-end"></ion-icon>
+            <ion-input [type]="senhaVisivel ? 'text' : 'password'" name="password" placeholder="{{ 'SENHA' | translate }}"></ion-input> 
+            <ion-icon [name]="senhaVisivel ? 'eye-off-outline' : 'eye-outline'" (click)="exibirSenha()"></ion-icon>
         </ion-item> 
       </ion-col>  
       <ion-col size="12">
         <ion-row>
           <ion-col size="6">
-            <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingFacebook()" type='button' color="primary"
-            expand="block">{{ 'ENTRAR' | translate }}</ion-button>          
+            <ion-button class="ion-no-margin ion-margin-top" type='button' color="primary" expand="block">
+            <ion-icon name="log-in-outline" class="ion-padding-end"></ion-icon>
+            {{ 'ENTRAR' | translate }}
+          </ion-button>          
           </ion-col>          
           <ion-col size="6">
-            <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingFacebook()" type='button' color="primary"
-            expand="block">{{ 'CADASTRAR' | translate }}</ion-button>
+            <ion-button class="ion-no-margin ion-margin-top" (click)="cadastrar()" type='button' color="primary" expand="block">
+            <ion-icon name="person-add-outline" class="ion-padding-end"></ion-icon>
+            {{ 'CADASTRAR' | translate }}
+          </ion-button>
           </ion-col>
         
         <ion-col size="12">
           <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingFacebook()" type='button' color="primary" fill="outline" expand="block">
-            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-facebook" slot="start"></ion-icon>
             {{ 'CADASTRAR_FACEBOOK' | translate }}
           </ion-button>
           <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingGoogle()" type='button' color="danger" fill="outline" expand="block">
-            <ion-icon name="logo-google"></ion-icon>
+            <ion-icon name="logo-google" slot="start"></ion-icon>
             {{ 'CADASTRAR_GOOGLE' | translate }}
           </ion-button> 
         </ion-col>
       </ion-row>
       </ion-col>              
     </ion-row>
-  </ion-grid>
-
 </ion-content>
