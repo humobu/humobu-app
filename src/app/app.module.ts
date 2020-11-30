@@ -14,6 +14,10 @@ import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AngularFireModule } from '@angular/fire';
 
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyA9YmyVbmUAsZo6zWIBQVsUrTq3qYCSGfU',
   authDomain: 'humobu-ac7ac.firebaseapp.com',
@@ -25,11 +29,23 @@ const firebaseConfig = {
   measurementId: 'G-Q50MKFTDP7'
 };
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    HttpClientModule
   ],
   providers: [
     StatusBar,

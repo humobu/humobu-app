@@ -3,6 +3,7 @@ import { ToastController } from '@ionic/angular';
 import { LoginFacebookService } from '../services/login-facebook.service';
 import { LoginTwitterService } from '../services/login-twitter.service';
 import { LoginGoogleService } from '../services/login-google.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,12 @@ export class LoginPage {
     private loginFacebookService: LoginFacebookService,
     private loginTwitterService: LoginTwitterService,
     private loginGoogleService: LoginGoogleService,
-    private toastController: ToastController
-  ) { }
+    private toastController: ToastController,
+    private translate: TranslateService
+  ) { 
+    this.translate.use('pr-br');
+    this.translate.setDefaultLang('pt-br');
+  }
 
   ionViewDidEnter() {
 

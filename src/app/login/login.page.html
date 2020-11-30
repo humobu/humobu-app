@@ -9,13 +9,38 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12">
-        <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingFacebook()" type='button' color="primary"
-          expand="block">Login using facebook</ion-button>
-        <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingTwitter()" type='button' color="primary"
-          expand="block">Login using Twitter</ion-button>
-        <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingGoogle()" type='button' color="primary"
-          expand="block">Login using Google</ion-button>
-      </ion-col>
+        <ion-item>
+          <ion-label position="floating">{{ 'EMAILOULOGIN' | translate }}</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">{{ 'SENHA' | translate }}</ion-label>
+          <ion-input></ion-input>
+        </ion-item> 
+      </ion-col>  
+      <ion-col size="12">
+        <ion-row>
+          <ion-col size="6">
+            <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingFacebook()" type='button' color="primary"
+            expand="block">{{ 'ENTRAR' | translate }}</ion-button>          
+          </ion-col>          
+          <ion-col size="6">
+            <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingFacebook()" type='button' color="primary"
+            expand="block">{{ 'CADASTRAR' | translate }}</ion-button>
+          </ion-col>
+        
+        <ion-col size="12">
+          <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingFacebook()" type='button' color="primary" fill="outline" expand="block">
+            <ion-icon name="logo-facebook"></ion-icon>
+            {{ 'CADASTRAR_FACEBOOK' | translate }}
+          </ion-button>
+          <ion-button class="ion-no-margin ion-margin-top" (click)="loginUsingGoogle()" type='button' color="danger" fill="outline" expand="block">
+            <ion-icon name="logo-google"></ion-icon>
+            {{ 'CADASTRAR_GOOGLE' | translate }}
+          </ion-button> 
+        </ion-col>
+      </ion-row>
+      </ion-col>              
     </ion-row>
   </ion-grid>
 
