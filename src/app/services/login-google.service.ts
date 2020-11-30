@@ -44,7 +44,7 @@ export class LoginGoogleService {
   async loginAndgetGoogleToken() {
     try {
       const data = await this.googlePlus.login({
-        webClientId: '764679065998-sbrsh3f5h1d70lotpk247qfi7pa20auv.apps.googleusercontent.com', //  webclientID 'string'
+        webClientId: '764679065998-5u5kao1h5i5op8hl35i18ojf7m46kpd4.apps.googleusercontent.com', //  webclientID 'string'
         offline: true
       });
 
