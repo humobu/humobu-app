@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,6 +11,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class CadastroPage {
 
   senhaVisivel: boolean;
+  messageEmail = ""
+  messagePassword = "";
+  errorEmail = false;
+  errorPassword = false;
 
   private usuario = {
     email: '',
@@ -20,7 +25,7 @@ export class CadastroPage {
     private angularFireAuth: AngularFireAuth,
     private translate: TranslateService
   ) { 
-    this.translate.use('pr-br');
+    this.translate.use('pt-br');
     this.translate.setDefaultLang('pt-br');
   }
 
