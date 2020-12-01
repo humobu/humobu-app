@@ -5,38 +5,40 @@
 </ion-header>
 
 <ion-content>
-  <ion-col size="12">
-    <ion-row>
-      <ion-col size="6">
-        <ion-item>
-          <ion-icon name="person-outline" class="ion-padding-end"></ion-icon>
-          <ion-input type="text" placeholder="{{ 'NOME' | translate }}"></ion-input>          
-        </ion-item>
-      </ion-col>
-      <ion-col size="6">
-        <ion-item>
-          <ion-input type="text" placeholder="{{ 'SOBRENOME' | translate }}"></ion-input> 
-        </ion-item>
-      </ion-col> 
-      <ion-col size="12">
-          <ion-item> 
-            <ion-icon name="mail-outline" class="ion-padding-end"></ion-icon>
-            <ion-input [(ngModel)]="usuario.email" type="email" placeholder="{{ 'EMAIL' | translate }}"></ion-input>                                  
+  <form [formGroup]="form" (ngSubmit)="cadastrar()">
+    <ion-col size="12">
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-icon name="person-outline" class="ion-padding-end"></ion-icon>
+            <ion-input [(ngModel)]="usuario.nome" formControlName="nome" [formControl]="form.controls['nome']" type="text" placeholder="{{ 'NOME' | translate }}"></ion-input>          
           </ion-item>
-      </ion-col>    
-      <ion-col size="12">
-        <ion-item>
-            <ion-icon name="key-outline" class="ion-padding-end"></ion-icon>
-            <ion-input [(ngModel)]="usuario.senha" [type]="senhaVisivel ? 'text' : 'password'" name="password" placeholder="{{ 'SENHA' | translate }}"></ion-input> 
-            <ion-icon [name]="senhaVisivel ? 'eye-off-outline' : 'eye-outline'" (click)="exibirSenha()"></ion-icon>
-        </ion-item> 
-      </ion-col> 
-      <ion-col size="12">
-        <ion-button class="ion-no-margin ion-margin-top" (click)="cadastrar()" type='button' color="primary" expand="block">
-          <ion-icon name="person-add-outline" class="ion-padding-end"></ion-icon>
-          {{ 'CADASTRAR' | translate }}
-        </ion-button>
-      </ion-col>  
-  </ion-row> 
-  </ion-col> 
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-input [(ngModel)]="usuario.sobrenome" formControlName="sobrenome" [formControl]="form.controls['sobrenome']" type="text" placeholder="{{ 'SOBRENOME' | translate }}"></ion-input> 
+          </ion-item>
+        </ion-col> 
+        <ion-col size="12">
+            <ion-item> 
+              <ion-icon name="mail-outline" class="ion-padding-end"></ion-icon>
+              <ion-input [(ngModel)]="usuario.email" formControlName="email" [formControl]="form.controls['email']" type="email" placeholder="{{ 'EMAIL' | translate }}"></ion-input>                                  
+            </ion-item>
+        </ion-col>    
+        <ion-col size="12">
+          <ion-item>
+              <ion-icon name="key-outline" class="ion-padding-end"></ion-icon>
+              <ion-input [(ngModel)]="usuario.senha" formControlName="senha" [formControl]="form.controls['senha']" [type]="senhaVisivel ? 'text' : 'password'" name="password" placeholder="{{ 'SENHA' | translate }}"></ion-input> 
+              <ion-icon [name]="senhaVisivel ? 'eye-off-outline' : 'eye-outline'" (click)="exibirSenha()"></ion-icon>
+          </ion-item> 
+        </ion-col> 
+        <ion-col size="12">
+          <ion-button class="ion-no-margin ion-margin-top" type="submit" color="primary" expand="block">
+            <ion-icon name="person-add-outline" class="ion-padding-end"></ion-icon>
+            {{ 'CADASTRAR' | translate }}
+          </ion-button>
+        </ion-col>  
+      </ion-row> 
+    </ion-col> 
+  </form>
 </ion-content>

@@ -6,6 +6,8 @@ import { LoginGoogleService } from '../services/login-google.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { plainToClass } from 'class-transformer';
+import { Usuario } from '../models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +18,7 @@ export class LoginPage {
 
   senhaVisivel: boolean;
   public form: FormGroup;
-  messageEmail = ""
-  messagePassword = "";
-  errorEmail = false;
-  errorPassword = false;
-
-  private acessar = {
-    login: '',
-    senha: ''
-  };
+  private usuario = new Usuario();
 
   constructor(
     private loginFacebookService: LoginFacebookService,
@@ -37,9 +31,10 @@ export class LoginPage {
   ) { 
     this.translate.use('pt-br');
     this.translate.setDefaultLang('pt-br');
+
     this.form = this.formBuilder.group({
-      login: [this.acessar.login, Validators.required],
-      senha: [this.acessar.senha, Validators.compose([Validators.minLength(6), Validators.maxLength(20),
+      email: [this.usuario.email, [Validators.required, Validators.email]],
+      senha: [this.usuario.senha, Validators.compose([Validators.minLength(6), Validators.maxLength(20),
       Validators.required])],
     });
   }
@@ -62,7 +57,7 @@ export class LoginPage {
 
       const toast = await this.toastController.create({
         animated: true,
-        message: 'Erro ao realizar login com o Facebook, tente novamente',
+        message: await this.translate.get("ERRO_FACEBOOK").toPromise(),
         duration: 3000
       });
 
@@ -70,23 +65,23 @@ export class LoginPage {
     }
   }
 
-  async loginUsingTwitter() {
-    try {
-      const login = await this.loginTwitterService.loginWithTwitter();
+  // async loginUsingTwitter() {
+  //   try {
+  //     const login = await this.loginTwitterService.loginWithTwitter();
 
-      console.log(login.additionalUserInfo.profile);
-    } catch (error) {
-      console.error(error);
+  //     console.log(login.additionalUserInfo.profile);
+  //   } catch (error) {
+  //     console.error(error);
 
-      const toast = await this.toastController.create({
-        animated: true,
-        message: 'Erro ao realizar login com o Twitter, tente novamente',
-        duration: 3000
-      });
+  //       const toast = await this.toastController.create({
+  //         animated: true,
+  //         message: 'Erro ao realizar login com o Twitter, tente novamente',
+  //         duration: 3000
+  //       });
 
-      toast.present();
-    }
-  }
+  //       toast.present();
+  //   }
+  // }
 
   async loginUsingGoogle() {
     try {
@@ -98,7 +93,7 @@ export class LoginPage {
 
       const toast = await this.toastController.create({
         animated: true,
-        message: 'Erro ao realizar login com o Google, tente novamente',
+        message: await this.translate.get("ERRO_GOOGLE").toPromise(),
         duration: 3000
       });
 
@@ -114,7 +109,7 @@ export class LoginPage {
 
       const toast = await this.toastController.create({
         animated: true,
-        message: 'Erro ao realizar login com o Google, tente novamente',
+        message: 'Erro ao realizar cadastro de usuários, tente novamente',
         duration: 3000
       });
 
@@ -122,33 +117,35 @@ export class LoginPage {
     }
   }  
 
-  // async entrar() {
-  //   let { login, senha } = this.form.controls;
-
-  //   if (!this.form.valid) {
-  //     if (!login.valid) {
-  //       this.errorEmail = true;
-  //       this.messageEmail = "Ops! Email inválido";
-  //     } else {
-  //       this.messageEmail = "";
-  //     }
-
-  //     if (!senha.valid) {
-  //       this.errorPassword = true;
-  //       this.messagePassword ="A senha precisa ter de 6 a 20 caracteres"
-  //     } else {
-  //       this.messagePassword = "";
-  //     }
-  //   }
-  //   else {
-  //     alert("Login Realizado");
-  //   }
-  // }
   async entrar() {
-    try {
+    let { email, senha } = this.form.controls;
+    let toast;
 
-    } catch (error) {
+    if (!this.form.valid) {
+      if (!email.valid) {
+        toast = await this.toastController.create({
+          animated: true,
+          message: await this.translate.get("EMAIL_INVALIDO").toPromise(),
+          duration: 3000
+        });
+      } else if (!senha.valid) {
+        toast = await this.toastController.create({
+          animated: true,
+          message: await this.translate.get("SENHA_INVALIDA").toPromise(),
+          duration: 3000
+        });
+      }
 
+      toast.present();
+    } else {
+      alert("Login Realizado");
     }
   }
+  // async entrar() {
+  //   try {
+      
+  //   } catch (error) {
+
+  //   }
+  // }
 }

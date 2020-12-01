@@ -3,10 +3,15 @@
     "CADASTRAR": "Cadastrar",
     "CADASTRAR_FACEBOOK": "Cadastrar com Facebook",
     "CADASTRAR_GOOGLE": "Cadastrar com Google",
-    "EMAIL_OU_LOGIN": "Email ou Login",
     "EMAIL": "Email",
     "SENHA": "Senha",
     "REPETIR_SENHA": "Repetir senha",
     "NOME": "Nome",
-    "SOBRENOME": "Sobrenome"
+    "SOBRENOME": "Sobrenome",
+    "EMAIL_INVALIDO": "Email Inválido.",
+    "SENHA_INVALIDA": "A senha precisa ter de 6 a 20 caracteres.",
+    "NOME_INVALIDO": "Campo obrigatório: Nome.",
+    "SOBRENOME_INVALIDO": "Campo obrigatório: Sobrenome.",
+    "ERRO_FACEBOOK": "Erro ao realizar login com o Facebook, tente novamente",
+    "ERRO_GOOGLE": "Erro ao realizar login com a Conta Google, tente novamente"
 }
