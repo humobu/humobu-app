@@ -1,6 +1,16 @@
-.image-center{
+.image-center {
     margin: 0 auto;
     margin-top: 10px;
     width: 100px;
     height: 100px;
+}
+.tamanho-card {
+    margin-bottom: 0px;
+    min-width: 5rem;    
+    min-height: 8rem;
+    width: auto;
+    height: auto;
+    ion-img {
+        width: 100%;
+    }
 }
