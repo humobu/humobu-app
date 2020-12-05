@@ -138,7 +138,7 @@ export class LoginPage {
 
       toast.present();
     } else {
-      alert("Login Realizado");
+      this.router.navigate(["tabs"]);
     }
   }
   // async entrar() {

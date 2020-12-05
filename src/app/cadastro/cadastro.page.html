@@ -11,12 +11,14 @@
         <ion-col size="6">
           <ion-item>
             <ion-icon name="person-outline" class="ion-padding-end"></ion-icon>
-            <ion-input [(ngModel)]="usuario.nome" formControlName="nome" [formControl]="form.controls['nome']" type="text" placeholder="{{ 'NOME' | translate }}"></ion-input>          
+            <ion-input [(ngModel)]="usuario.nome" formControlName="nome" [formControl]="form.controls['nome']" 
+              type="text" autocapitalize="on" placeholder="{{ 'NOME' | translate }}"></ion-input>          
           </ion-item>
         </ion-col>
         <ion-col size="6">
           <ion-item>
-            <ion-input [(ngModel)]="usuario.sobrenome" formControlName="sobrenome" [formControl]="form.controls['sobrenome']" type="text" placeholder="{{ 'SOBRENOME' | translate }}"></ion-input> 
+            <ion-input [(ngModel)]="usuario.sobrenome" formControlName="sobrenome" [formControl]="form.controls['sobrenome']" 
+            type="text" autocapitalize="on" placeholder="{{ 'SOBRENOME' | translate }}"></ion-input> 
           </ion-item>
         </ion-col> 
         <ion-col size="12">
