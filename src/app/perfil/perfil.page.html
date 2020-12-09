@@ -11,35 +11,41 @@
     <ion-col size="12">
       <ion-row>
         <ion-col size="4"> 
-          <ion-card class="tamanho-card">
+          <ion-card color="light">
             <ion-img src="../../assets/img/avatar.svg"></ion-img>
             <ion-note detail slot="end" color="primary"> <ion-icon class="person-outline"></ion-icon></ion-note>
           </ion-card>
         </ion-col>
         <ion-col size="4"> 
-          <ion-card class="tamanho-card">
+          <ion-card color="light">
             <ion-img src="../../assets/img/avatar.svg"></ion-img>
           </ion-card>
         </ion-col> 
         <ion-col size="4"> 
-          <ion-card class="tamanho-card">
-            <ion-img src="../../assets/img/avatar.svg"></ion-img>
+          <ion-card color="light">
+            <div class="img-wrapper">
+              <img src="../../assets/img/avatar.svg" />
+              <ion-button color="light">
+                <ion-icon slot="icon-only" name="camera-outline" color="medium">
+                </ion-icon>
+              </ion-button>
+            </div>
           </ion-card>
         </ion-col>   
       </ion-row>
       <ion-row>
         <ion-col size="4"> 
-          <ion-card class="tamanho-card">
+          <ion-card color="light">
             <ion-img src="../../assets/img/avatar.svg"></ion-img>
           </ion-card>
         </ion-col>
         <ion-col size="4"> 
-          <ion-card class="tamanho-card">
+          <ion-card color="light">
             <ion-img src="../../assets/img/avatar.svg"></ion-img>
           </ion-card>
         </ion-col> 
         <ion-col size="4"> 
-          <ion-card class="tamanho-card">
+          <ion-card color="light">
             <ion-img src="../../assets/img/avatar.svg"></ion-img>
           </ion-card>
         </ion-col>   
@@ -58,8 +64,8 @@
                   </ion-label>
                   <ion-note detail slot="end" color="primary"> <ion-icon class="person-outline"></ion-icon></ion-note>
                 </ion-item>
-              </ion-list>
-        </ion-card>
+        </ion-list>
+      </ion-card>
     <ion-row>
       <ion-col size="6">
         <ion-item>
@@ -71,7 +77,41 @@
         <ion-item>
           <ion-input type="text" autocapitalize="on" placeholder="Sobrenome"></ion-input> 
         </ion-item>
-      </ion-col>  
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-icon name="school-outline" class="ion-padding-end"></ion-icon>
+          <ion-input type="text" autocapitalize="on" placeholder="Profissão"></ion-input> 
+        </ion-item>
+      </ion-col> 
+      <ion-col size="12">
+        <ion-item>
+          <ion-icon name="home-outline" class="ion-padding-end"></ion-icon>
+          <ion-input type="text" autocapitalize="on" placeholder="Cidade Atual"></ion-input> 
+        </ion-item>
+      </ion-col> 
+      <ion-col size="12">
+        <ion-item>
+          <ion-icon name="logo-instagram" class="ion-padding-end"></ion-icon>
+          <ion-input type="text" autocapitalize="on" placeholder="Instagram"></ion-input> 
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-icon name="call-outline" class="ion-padding-end"></ion-icon>          
+          <ion-input type="text" autocapitalize="on" placeholder="Telefone"></ion-input> 
+        </ion-item>
+      </ion-col>
+      <ion-item>
+        <ion-label>Popover</ion-label>
+        <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
+          <ion-select-option value="brown">Brown</ion-select-option>
+          <ion-select-option value="blonde">Blonde</ion-select-option>
+          <ion-select-option value="black">Black</ion-select-option>
+          <ion-select-option value="red">Red</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
     </ion-row>
     </ion-col>   
   </ion-row> 
