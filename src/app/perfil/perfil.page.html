@@ -10,62 +10,17 @@
   <ion-row>
     <ion-col size="12">
       <ion-row>
-        <ion-col size="4"> 
+        <ion-col *ngFor="let imagem of imagens" size="4" class="image-card"> 
           <ion-card color="light">
-            <ion-img src="../../assets/img/avatar.svg"></ion-img>
-            <ion-note detail slot="end" color="primary"> <ion-icon class="person-outline"></ion-icon></ion-note>
+            <ion-img src="../../assets/img/avatar.svg">   
+            </ion-img>                                     
           </ion-card>
-        </ion-col>
-        <ion-col size="4"> 
-          <ion-card color="light">
-            <ion-img src="../../assets/img/avatar.svg"></ion-img>
-          </ion-card>
-        </ion-col> 
-        <ion-col size="4"> 
-          <ion-card color="light">
-            <div class="img-wrapper">
-              <img src="../../assets/img/avatar.svg" />
-              <ion-button color="light">
-                <ion-icon slot="icon-only" name="camera-outline" color="medium">
-                </ion-icon>
-              </ion-button>
-            </div>
-          </ion-card>
+          <ion-button color="primary">
+            <ion-icon slot="icon-only" name="camera-outline" >
+            </ion-icon>
+          </ion-button>
         </ion-col>   
       </ion-row>
-      <ion-row>
-        <ion-col size="4"> 
-          <ion-card color="light">
-            <ion-img src="../../assets/img/avatar.svg"></ion-img>
-          </ion-card>
-        </ion-col>
-        <ion-col size="4"> 
-          <ion-card color="light">
-            <ion-img src="../../assets/img/avatar.svg"></ion-img>
-          </ion-card>
-        </ion-col> 
-        <ion-col size="4"> 
-          <ion-card color="light">
-            <ion-img src="../../assets/img/avatar.svg"></ion-img>
-          </ion-card>
-        </ion-col>   
-      </ion-row>
-      <ion-card>
-        <ion-list>
-                <ion-item>
-                  <ion-avatar slot="start">
-                    <img src="../../assets/img/avatar.svg">
-                  </ion-avatar>
-                  <ion-label>
-                    <div class="align">
-                    <h2 class="ion-text-start">Lacey Mae Howe</h2>
-                </div>
-                    <p>this is Chat</p>
-                  </ion-label>
-                  <ion-note detail slot="end" color="primary"> <ion-icon class="person-outline"></ion-icon></ion-note>
-                </ion-item>
-        </ion-list>
-      </ion-card>
     <ion-row>
       <ion-col size="6">
         <ion-item>
@@ -103,15 +58,28 @@
         </ion-item>
       </ion-col>
       <ion-item>
-        <ion-label>Popover</ion-label>
-        <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
-          <ion-select-option value="brown">Brown</ion-select-option>
-          <ion-select-option value="blonde">Blonde</ion-select-option>
-          <ion-select-option value="black">Black</ion-select-option>
-          <ion-select-option value="red">Red</ion-select-option>
+        <ion-label>Gender</ion-label>
+        <ion-select placeholder="Select One">
+          <ion-select-option value="f">Female</ion-select-option>
+          <ion-select-option value="m">Male</ion-select-option>
         </ion-select>
       </ion-item>
-    
+      <ion-card>
+        <ion-list>
+                <ion-item>
+                  <ion-avatar slot="start">
+                    <img src="../../assets/img/avatar.svg">
+                  </ion-avatar>
+                  <ion-label>
+                    <div class="align">
+                    <h2 class="ion-text-start">Lacey Mae Howe</h2>
+                </div>
+                    <p>this is Chat</p>
+                  </ion-label>
+                  <ion-note detail slot="end" color="primary"> <ion-icon class="person-outline"></ion-icon></ion-note>
+                </ion-item>
+        </ion-list>
+      </ion-card>
     </ion-row>
     </ion-col>   
   </ion-row> 

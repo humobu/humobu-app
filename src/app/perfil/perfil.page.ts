@@ -13,4 +13,6 @@ export class PerfilPage {
 
   }
 
+  private imagens = ["", "", "", "", "", ""]
+
 }
