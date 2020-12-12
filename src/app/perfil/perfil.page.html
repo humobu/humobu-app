@@ -60,13 +60,13 @@
       <ion-col size="12">
         <ion-item>
           <ion-icon name="male-female-outline" class="ion-padding-end"></ion-icon>           
-          <ion-input type="text" maxlength="14" autocapitalize="on" placeholder="Sexo" readonly></ion-input> 
+          <ion-input type="text" maxlength="14" autocapitalize="on" (click)="selecionaSexo()" placeholder="Sexo" readonly></ion-input> 
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <label class="labelteste">Orientação Sexual</label> 
         <ion-item>                 
-          <ion-input type="text" maxlength="14" autocapitalize="on" placeholder="Orientação Sexual" readonly></ion-input> 
+          <ion-input type="text" maxlength="14" autocapitalize="on" (click)="selecionaOrientacao()" placeholder="Orientação Sexual" readonly></ion-input> 
         </ion-item>
       </ion-col>
       <ion-card>

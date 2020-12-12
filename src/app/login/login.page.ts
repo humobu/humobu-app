@@ -109,7 +109,7 @@ export class LoginPage {
 
       const toast = await this.toastController.create({
         animated: true,
-        message: 'Erro ao realizar cadastro de usuários, tente novamente',
+        message: await this.translate.get("ERRO_CADASTRO").toPromise(),
         duration: 3000
       });
 

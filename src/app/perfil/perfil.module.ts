@@ -8,6 +8,7 @@ import { PerfilPageRoutingModule } from './perfil-routing.module';
 
 import { PerfilPage } from './perfil.page';
 import { BrMaskerModule } from 'br-mask';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [

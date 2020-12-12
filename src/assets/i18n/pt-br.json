@@ -13,5 +13,6 @@
     "NOME_INVALIDO": "Campo obrigatório: Nome.",
     "SOBRENOME_INVALIDO": "Campo obrigatório: Sobrenome.",
     "ERRO_FACEBOOK": "Erro ao realizar login com o Facebook, tente novamente",
-    "ERRO_GOOGLE": "Erro ao realizar login com a Conta Google, tente novamente"
+    "ERRO_GOOGLE": "Erro ao realizar login com a Conta Google, tente novamente",
+    "ERRO_CADASTRO": "Erro ao realizar cadastro de usuários, tente novamente"
 }
