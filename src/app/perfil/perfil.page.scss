@@ -1,29 +1,40 @@
-.image-card{
+.bloco-imagens{
+  margin-bottom: 15px;
+  .image-card{
 
-  ion-img{
-    height: 100%;
-  }
+    ion-img{
+      height: 100%;
+    }
 
-  ion-button{
-    --border-width: 0px;
-    --border-color: var(--ion-color-light-shade);
-    --border-style: solid;
-    --padding-start: 0;
-    --padding-end: 0;
-    --padding-bottom: 0;
-    --padding-top: 0;
+    ion-button{
+      --border-width: 0px;
+      --border-color: var(--ion-color-light-shade);
+      --border-style: solid;
+      --padding-start: 0;
+      --padding-end: 0;
+      --padding-bottom: 0;
+      --padding-top: 0;
   
-    --border-radius: 50%;
-    height: 35px;
-    width: 35px;
+      --border-radius: 50%;
+      height: 35px;
+      width: 35px;
   
-    position: absolute;
-    right: 5px;
-    bottom: -10px;
+      position: absolute;
+      right: 5px;
+      bottom: -10px;
   
-    ion-icon {          
-      width: 18px;
-      height: 18px;
+      ion-icon {          
+        width: 18px;
+        height: 18px;
+      }
     }
   }
+}
+
+.bloco-input{
+
+}
+
+.labelteste{
+  margin-bottom: 5px;
 }

@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-row>
     <ion-col size="12">
-      <ion-row>
+      <ion-row class="bloco-imagens">
         <ion-col *ngFor="let imagem of imagens" size="4" class="image-card"> 
           <ion-card color="light">
             <ion-img src="../../assets/img/avatar.svg">   
@@ -21,7 +21,7 @@
           </ion-button>
         </ion-col>   
       </ion-row>
-    <ion-row>
+    <ion-row class="bloco-input">
       <ion-col size="6">
         <ion-item>
           <ion-icon name="person-outline" class="ion-padding-end"></ion-icon>
@@ -54,16 +54,21 @@
       <ion-col size="12">
         <ion-item>
           <ion-icon name="call-outline" class="ion-padding-end"></ion-icon>          
-          <ion-input type="text" autocapitalize="on" placeholder="Telefone"></ion-input> 
+          <ion-input type="text" maxlength="14" autocapitalize="on" placeholder="Telefone" [brmasker]="{mask:'(00)00000-0000', len:14, type:'num'}"></ion-input> 
         </ion-item>
       </ion-col>
-      <ion-item>
-        <ion-label>Gender</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
-        </ion-select>
-      </ion-item>
+      <ion-col size="12">
+        <ion-item>
+          <ion-icon name="male-female-outline" class="ion-padding-end"></ion-icon>           
+          <ion-input type="text" maxlength="14" autocapitalize="on" placeholder="Sexo" readonly></ion-input> 
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <label class="labelteste">Orientação Sexual</label> 
+        <ion-item>                 
+          <ion-input type="text" maxlength="14" autocapitalize="on" placeholder="Orientação Sexual" readonly></ion-input> 
+        </ion-item>
+      </ion-col>
       <ion-card>
         <ion-list>
                 <ion-item>
