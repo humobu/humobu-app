@@ -17,7 +17,30 @@ const routes: Routes = [
       },
       {
         path: 'perfil',
-        loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
+          },
+          {
+            path: 'sexo',
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('../perfil-sexo/perfil-sexo.module').then(m => m.PerfilSexoPageModule)
+              },
+              {
+                path: 'mais',
+                loadChildren: () => import('../perfil-sexo-mais/perfil-sexo-mais.module').then(m => m.PerfilSexoMaisPageModule)
+              }
+            ]
+          },
+          {
+            path: 'orientacao',
+            loadChildren: () => import('../perfil-orientacao/perfil-orientacao.module').then(m => m.PerfilOrientacaoPageModule)
+          }
+        ]
+        //loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       },
       {
         path: '',

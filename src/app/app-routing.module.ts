@@ -19,12 +19,8 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'perfil-sexo',
-    loadChildren: () => import('./perfil-sexo/perfil-sexo.module').then(m => m.PerfilSexoPageModule)
-  },
-  {
-    path: 'perfil-orientacao',
-    loadChildren: () => import('./perfil-orientacao/perfil-orientacao.module').then(m => m.PerfilOrientacaoPageModule)
+    path: 'perfil-sexo-mais',
+    loadChildren: () => import('./perfil-sexo-mais/perfil-sexo-mais.module').then( m => m.PerfilSexoMaisPageModule)
   }
 ];
 @NgModule({

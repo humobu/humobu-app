@@ -18,6 +18,11 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { Camera } from '@ionic-native/Camera/ngx';
+import { File } from '@ionic-native/File/ngx';
+//import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyA9YmyVbmUAsZo6zWIBQVsUrTq3qYCSGfU',
   authDomain: 'humobu-ac7ac.firebaseapp.com',
@@ -53,7 +58,10 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Facebook,
     TwitterConnect,
-    GooglePlus
+    GooglePlus,
+    Camera,
+    File,
+    FilePath
   ],
   bootstrap: [AppComponent]
 })

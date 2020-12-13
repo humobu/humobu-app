@@ -12,14 +12,18 @@
       <ion-row class="bloco-imagens">
         <ion-col *ngFor="let imagem of imagens" size="4" class="image-card"> 
           <ion-card color="light">
-            <ion-img src="../../assets/img/avatar.svg">   
+            <ion-img [src]="imagem.filePath">   
             </ion-img>                                     
           </ion-card>
-          <ion-button color="primary">
+          <ion-button color="primary" (click)="selecionaImage(imagem)">
             <ion-icon slot="icon-only" name="camera-outline" >
             </ion-icon>
           </ion-button>
-        </ion-col>   
+        </ion-col>  
+        <ion-button color="primary" (click)="selecionaImage()">
+          <ion-icon slot="icon-only" name="camera-outline" >
+          </ion-icon>
+        </ion-button>
       </ion-row>
     <ion-row class="bloco-input">
       <ion-col size="6">
@@ -59,32 +63,42 @@
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-icon name="male-female-outline" class="ion-padding-end"></ion-icon>           
+          <ion-icon name="male-female-outline" class="ion-padding-end"></ion-icon>          
           <ion-input type="text" maxlength="14" autocapitalize="on" (click)="selecionaSexo()" placeholder="Sexo" readonly></ion-input> 
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <label class="labelteste">Orientação Sexual</label> 
-        <ion-item>                 
+        <ion-item>              
+          <ion-icon name="help-outline" class="ion-padding-end"></ion-icon>              
           <ion-input type="text" maxlength="14" autocapitalize="on" (click)="selecionaOrientacao()" placeholder="Orientação Sexual" readonly></ion-input> 
         </ion-item>
       </ion-col>
-      <ion-card>
-        <ion-list>
-                <ion-item>
-                  <ion-avatar slot="start">
-                    <img src="../../assets/img/avatar.svg">
-                  </ion-avatar>
-                  <ion-label>
-                    <div class="align">
-                    <h2 class="ion-text-start">Lacey Mae Howe</h2>
-                </div>
-                    <p>this is Chat</p>
-                  </ion-label>
-                  <ion-note detail slot="end" color="primary"> <ion-icon class="person-outline"></ion-icon></ion-note>
-                </ion-item>
-        </ion-list>
-      </ion-card>
+      <ion-col size="12">
+        <ion-item>
+          <ion-textarea placeholder="Sobre mim" maxlength="200"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item-divider>
+          <ion-label>
+            Controle de Perfil
+          </ion-label>
+        </ion-item-divider>
+          <ion-list>
+            <ion-item>
+              <ion-label>Mostrar minha idade</ion-label>
+              <ion-toggle slot="end" [(ngModel)]="mostraIdade"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Mostrar gênero</ion-label>
+              <ion-toggle slot="end" [(ngModel)]="mostraGenero"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Mostrar orientação sexual</ion-label>
+              <ion-toggle slot="end" [(ngModel)]="mostraOrientacao"></ion-toggle>
+            </ion-item>
+          </ion-list>
+      </ion-col>           
     </ion-row>
     </ion-col>   
   </ion-row> 
