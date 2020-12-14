@@ -20,7 +20,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { Camera } from '@ionic-native/Camera/ngx';
 import { File } from '@ionic-native/File/ngx';
-//import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 
 const firebaseConfig = {
@@ -61,6 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
     GooglePlus,
     Camera,
     File,
+    WebView,
     FilePath
   ],
   bootstrap: [AppComponent]

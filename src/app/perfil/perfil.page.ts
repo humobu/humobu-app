@@ -4,6 +4,7 @@ import { ActionSheetController, LoadingController, Platform, ToastController } f
 import { File, FileEntry } from '@ionic-native/File/ngx';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 @Component({
   selector: 'app-perfil',
@@ -20,14 +21,16 @@ export class PerfilPage {
     private actionSheetController: ActionSheetController, 
     private plt: Platform, 
     private loadingController: LoadingController,
-    private ref: ChangeDetectorRef, 
-    private filePath: FilePath
+    private ref: ChangeDetectorRef,
+    private filePath: FilePath,
+    private webview: WebView
   ) { 
 
   }
 
-  private imagens = ["", "", "", "", "", ""]
+  private imagens = [{}, {}, {}, {}, {}, {}];
   images = [];
+  private indexfoto;
 
   async selecionaSexo() {
     try {      
@@ -62,91 +65,92 @@ export class PerfilPage {
   }
 
 
-async selecionaImage() {
-    const actionSheet = await this.actionSheetController.create({
-        header: "Select Image source",
-        buttons: [{
-                text: 'Load from Library',
-                handler: () => {
-                    this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-                }
-            },
-            {
-                text: 'Use Camera',
-                handler: () => {
-                    this.takePicture(this.camera.PictureSourceType.CAMERA);
-                }
-            },
-            {
-                text: 'Cancel',
-                role: 'cancel'
-            }
-        ]
+  async selecionaImage(index) {
+      this.indexfoto = index;
+      const actionSheet = await this.actionSheetController.create({
+          header: "Selecionar Imagem",
+          buttons: [{
+                  text: 'Carregar da biblioteca',
+                  handler: () => {
+                      this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+                  }
+              },
+              {
+                  text: 'Usar câmera',
+                  handler: () => {
+                      this.takePicture(this.camera.PictureSourceType.CAMERA);
+                  }
+              },
+              {
+                  text: 'Cancelar',
+                  role: 'cancelar'
+              }
+          ]
+      });
+      await actionSheet.present();
+  }
+
+  takePicture(sourceType: PictureSourceType) {
+    var options: CameraOptions = {
+        quality: 100,
+        sourceType: sourceType,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+    };
+
+    this.camera.getPicture(options).then(imagePath => {
+        if (this.plt.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+            this.filePath.resolveNativePath(imagePath)
+                .then(filePath => {
+                    let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+                    let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
+                    this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+                });
+        } else {
+            var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
+            var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+            this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+        }
     });
-    await actionSheet.present();
-}
 
-takePicture(sourceType: PictureSourceType) {
-  var options: CameraOptions = {
-      quality: 100,
-      sourceType: sourceType,
-      saveToPhotoAlbum: false,
-      correctOrientation: true
-  };
+  }
 
-  this.camera.getPicture(options).then(imagePath => {
-      if (this.plt.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-          this.filePath.resolveNativePath(imagePath)
-              .then(filePath => {
-                  let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
-                  let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
-                  this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
-              });
-      } else {
-          var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
-          var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-          this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
-      }
-  });
+  createFileName() {
+    var d = new Date(),
+        n = d.getTime(),
+        newFileName = n + ".jpg";
+    return newFileName;
+  }
 
-}
+  copyFileToLocalDir(namePath, currentName, newFileName) {
+    this.file.copyFile(namePath, currentName, this.file.dataDirectory, newFileName).then(success => {
+        this.updateStoredImages(newFileName);
+    }, error => {
+      console.error(error);
+    });
+  }
 
-createFileName() {
-  var d = new Date(),
-      n = d.getTime(),
-      newFileName = n + ".jpg";
-  return newFileName;
-}
+  updateStoredImages(name) {
+    let filePath = this.file.dataDirectory + name;
+    let resPath = this.pathForImage(filePath);
 
-copyFileToLocalDir(namePath, currentName, newFileName) {
-  this.file.copyFile(namePath, currentName, this.file.dataDirectory, newFileName).then(success => {
-      this.updateStoredImages(newFileName);
-  }, error => {
-    console.error(error);
-  });
-}
+    let newEntry = {
+    name: name,
+    path: resPath,
+    filePath: filePath
+    };
 
-updateStoredImages(name) {
-  //this.storage.get("teste").then(images => {
-      let arr = [];
-      //if (!arr) {
-        //  let newImages = [name];
-      //} else {
-          arr.push(name);
-      //}
+    this.imagens[this.indexfoto] = newEntry;
+    this.ref.detectChanges();
+  }
 
-      let filePath = this.file.dataDirectory + name;
-      //let resPath = this.pathForImage(filePath);
-
-      let newEntry = {
-          name: name,
-          filePath: filePath
-      };
-      console.log(filePath);
-
-      this.images = [newEntry, ...this.images];
-      this.ref.detectChanges(); // trigger change detection cycle
-  //});
-}
+  pathForImage(img) {
+    if (img === null) {
+      return '';
+    } else {
+      let converted = this.webview.convertFileSrc(img);
+      return converted;
+    }
+  }
 
 }
