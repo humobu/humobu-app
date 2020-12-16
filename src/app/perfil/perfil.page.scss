@@ -2,8 +2,10 @@
   margin-bottom: 15px;
   .image-card{
     ion-card{
+      border: 5px;
+      border-color: red;
+      border-style: dotted;
       background-color: rgb(212, 212, 212);
-      width: 90px;
       height: 160px;
     }
 
@@ -26,8 +28,8 @@
       width: 35px;
   
       position: absolute;
-      right: 0px;
-      bottom: -10px;
+      right: 5%;
+      bottom: -2%;
   
       ion-icon {          
         width: 18px;
