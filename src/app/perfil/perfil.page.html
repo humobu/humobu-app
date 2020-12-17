@@ -7,19 +7,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-row class="bloco-imagens">
-      <ion-col size="12" size-xs size="6" size-sm size="4" size-md size="4" size-lg size="4" size-xl *ngFor="let imagem of imagens; let i = index" class="image-card"> 
-        <ion-card>
-            <ion-img [src]="imagem.path"></ion-img>
-        </ion-card>
-        <ion-button color="primary" (click)="selecionaImage(i)">
-          <ion-icon slot="icon-only" name="camera-outline" >
-          </ion-icon>
-        </ion-button>
-      </ion-col>                        
-  </ion-row>  
   <ion-row>
-    <ion-col size="12">                
+    <ion-col size="12">
+        <ion-row class="bloco-imagens">
+          <ion-col size="4" *ngFor="let imagem of imagens; let i = index" class="image-card">                       
+              <ion-card [ngClass]="imagem.name == null ? 'border-card' : 'card'">
+                  <ion-img [src]="imagem.path"></ion-img>                        
+              </ion-card>
+              <ion-button color="primary" (click)="selecionaImage(i)">
+                <ion-icon slot="icon-only" name="camera-outline" >
+                </ion-icon>
+              </ion-button>    
+          </ion-col>                        
+        </ion-row>
     <ion-row class="bloco-input">
       <ion-col size="6">
         <ion-item>
