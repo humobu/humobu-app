@@ -1,0 +1,19 @@
+ion-card {
+    ion-card-content {
+        margin: 0px;
+    }
+    img {
+        margin: 10px;
+        width: 50px;
+        float: right;
+    }
+    span {
+        margin: 10px;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    ion-icon {
+        padding-bottom: 0px;
+    }
+}

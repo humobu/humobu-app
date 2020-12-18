@@ -11,7 +11,7 @@
     <ion-col size="12">
         <ion-row class="bloco-imagens">
           <ion-col size="4" *ngFor="let imagem of imagens; let i = index" class="image-card">                       
-              <ion-card [ngClass]="imagem.name == null ? 'border-card' : 'card'">
+              <ion-card (click)="selecionaImage(i)" [ngClass]="imagem.name == null ? 'border-card' : 'card'">
                   <ion-img [src]="imagem.path"></ion-img>                        
               </ion-card>
               <ion-button color="primary" (click)="selecionaImage(i)">
