@@ -4,8 +4,10 @@ ion-card {
     }
     img {
         margin: 10px;
-        width: 50px;
+        width: 100px;
         float: right;
+        border-radius: 10px !important;
+        overflow: hidden;
     }
     span {
         margin: 10px;
@@ -15,5 +17,25 @@ ion-card {
     }
     ion-icon {
         padding-bottom: 0px;
+    }
+    .avatar-block {
+        p {
+            display: inline;
+            margin: 15px;
+        }
+        .avatar-item {
+            margin-left: 30px; 
+            display: block;
+            ion-avatar {                           
+                display: inline-block;
+                width: 15px;
+                height: 15px;  
+                margin-left: -5px;                
+                img {
+                    margin-top: 5px;
+                    border: solid 2px;
+                }          
+            }
+        }        
     }
 }
