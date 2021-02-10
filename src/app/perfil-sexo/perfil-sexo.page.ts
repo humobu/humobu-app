@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
+import { GlobalFooService } from '../GlobalFooService';
 
 
 @Component({
@@ -13,9 +14,13 @@ export class PerfilSexoPage {
   constructor(
     private router: Router,
     private toastController: ToastController,
+    public navCtrl: NavController,
+    private globalFooService: GlobalFooService
   ) { 
 
   }
+
+  private radioValue;
 
   async selecionaMais() {
     try {      
@@ -32,5 +37,11 @@ export class PerfilSexoPage {
       toast.present();
     }
   }
+
+  onSomeButtonClick() {
+    this.globalFooService.publishSomeData({
+        sexo: this.radioValue
+    });
+}
 
 }

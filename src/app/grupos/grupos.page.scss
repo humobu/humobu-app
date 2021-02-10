@@ -1,41 +1,49 @@
 ion-card {
-    ion-card-content {
-        margin: 0px;
-    }
-    img {
+    overflow: hidden;
+    .imagem-estab {
         margin: 10px;
-        width: 100px;
+        width: 22%;
         float: right;
         border-radius: 10px !important;
-        overflow: hidden;
     }
-    span {
+    .nome-estab {
         margin: 10px;
         display: inline-block;
         font-size: 15px;
         font-weight: bold;
     }
-    ion-icon {
-        padding-bottom: 0px;
-    }
-    .avatar-block {
-        p {
+    .detalhes-estab {
+        overflow: hidden;
+        .avaliacao {
+            color: #FFC100;
             display: inline;
-            margin: 15px;
+            padding-left: 10px; 
+            font-weight: bold;
         }
-        .avatar-item {
-            margin-left: 30px; 
-            display: block;
-            ion-avatar {                           
+        .avatar-itens {
+            padding-left: 15px;
+            padding-bottom: 0px;
+            overflow: hidden;
+            ion-avatar {
                 display: inline-block;
-                width: 15px;
-                height: 15px;  
-                margin-left: -5px;                
+                width: 22px;
+                height: 22px;
+                margin-left: -8px;
+                margin-top: 5px;
                 img {
-                    margin-top: 5px;
                     border: solid 2px;
-                }          
+                    border-color: rgb(245, 245, 245);
+                }
             }
-        }        
+            .qtd-usuarios {
+                display: inline-block;
+                margin: 0px;
+                padding-top: 13px;
+                font-size: 10px;
+                position: relative;
+                bottom: 5px;
+            }
+        }
+        
     }
 }

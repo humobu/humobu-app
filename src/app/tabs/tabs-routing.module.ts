@@ -9,7 +9,16 @@ const routes: Routes = [
     children: [
       {
         path: 'grupos',
-        loadChildren: () => import('../grupos/grupos.module').then(m => m.GruposPageModule)
+        children: [ 
+          {
+            path: '',
+            loadChildren: () => import('../grupos/grupos.module').then(m => m.GruposPageModule)
+          },
+          {
+            path: 'estabelecimento',
+            loadChildren: () => import('../estabelecimento/estabelecimento.module').then(m => m.EstabelecimentoPageModule)
+          }
+        ]        
       },
       {
         path: 'conversas',

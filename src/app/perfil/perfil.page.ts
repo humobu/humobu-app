@@ -5,6 +5,7 @@ import { File, FileEntry } from '@ionic-native/File/ngx';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { GlobalFooService } from '../GlobalFooService';
 
 @Component({
   selector: 'app-perfil',
@@ -23,7 +24,8 @@ export class PerfilPage {
     private loadingController: LoadingController,
     private ref: ChangeDetectorRef,
     private filePath: FilePath,
-    private webview: WebView
+    private webview: WebView,
+    private globalFooService: GlobalFooService
   ) { 
 
   }
@@ -31,10 +33,15 @@ export class PerfilPage {
   private imagens = [{}, {}, {}, {}, {}, {}];
   images = [];
   private indexfoto;
+  private sexo;
 
   async selecionaSexo() {
     try {      
       this.router.navigate(['/tabs/perfil/sexo']);
+      this.globalFooService.getObservable().subscribe((data) => {
+        console.log('Data received', data.sexo);
+        this.sexo = data.sexo;
+      });
     } catch (error) {
       console.error(error);
 

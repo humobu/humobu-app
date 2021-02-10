@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-back-outline" color="primary"></ion-back-button>
+      <ion-back-button text="" icon="arrow-back-outline" color="primary" (click)="onSomeButtonClick()"></ion-back-button>
     </ion-buttons>
     <ion-title>Sexo</ion-title>
   </ion-toolbar>
@@ -11,15 +11,15 @@
   <ion-row>
     <ion-col size="12">
       <ion-list>
-        <ion-radio-group value="sexo">
+        <ion-radio-group [(ngModel)]="radioValue" value="sexo">
           <ion-item>
             <ion-label>Homem</ion-label>
-            <ion-radio slot="end" value="homem"></ion-radio>
+            <ion-radio slot="end" value="Homem"></ion-radio>
           </ion-item>
       
           <ion-item>
             <ion-label>Mulher</ion-label>
-            <ion-radio slot="end" value="mulher"></ion-radio>
+            <ion-radio slot="end" value="Mulher"></ion-radio>
           </ion-item>
         </ion-radio-group>
         <ion-item detail (click)="selecionaMais()">

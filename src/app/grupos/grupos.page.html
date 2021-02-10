@@ -8,32 +8,19 @@
 
 <ion-content [fullscreen]="true">
   <ion-row>
-    <ion-col size="12">
-      <ion-card color="light">
-          <ion-col size="6">
-            <img src="https://i2.wp.com/papocultura.com.br/wp-content/uploads/2019/03/bodega-de-basti%C3%A3o.jpg?resize=940%2C550&ssl=1">    
-            <span>Bodegueiro</span>     
-            <div class="avatar-block">       
-              <p><ion-icon name="star"></ion-icon> 4.7</p>     
-              <div class="avatar-item">
-                <ion-avatar>
-                  <img src="../../assets/img/avatar.svg">
-                </ion-avatar>   
-                <ion-avatar>
-                  <img src="../../assets/img/avatar.svg">
-                </ion-avatar> 
-                <ion-avatar>
-                  <img src="../../assets/img/avatar.svg">
-                </ion-avatar>
-                <ion-avatar>
-                  <img src="../../assets/img/avatar.svg">
-                </ion-avatar>
-                <ion-avatar>
-                  <img src="../../assets/img/avatar.svg">
-                </ion-avatar>
-              </div>                     
-            </div>              
-          </ion-col>                           
+    <ion-col>
+      <ion-card color="light" size="12" *ngFor="let card of cardEstab; let i = index" (click)="abrirEstab(i)">
+        <img class="imagem-estab" src="../../assets/img/avatar.svg">
+        <span class="nome-estab">Bodegueiro</span>
+        <div class="detalhes-estab">
+          <p class="avaliacao"><ion-icon name="star"></ion-icon> 4.7</p>
+          <div class="avatar-itens">
+            <ion-avatar *ngFor="let img of imgPerfil; let i = index">
+              <img src="../../assets/img/avatar.svg">
+            </ion-avatar>
+            <p class="qtd-usuarios">... +100 pessoas</p>
+          </div>                          
+        </div>                          
       </ion-card>
     </ion-col>
   </ion-row>
