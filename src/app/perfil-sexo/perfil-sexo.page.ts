@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController, NavController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { GlobalFooService } from '../GlobalFooService';
 
 
@@ -14,7 +14,6 @@ export class PerfilSexoPage {
   constructor(
     private router: Router,
     private toastController: ToastController,
-    public navCtrl: NavController,
     private globalFooService: GlobalFooService
   ) { 
 
@@ -38,10 +37,10 @@ export class PerfilSexoPage {
     }
   }
 
-  onSomeButtonClick() {
+  back() {
     this.globalFooService.publishSomeData({
         sexo: this.radioValue
     });
-}
+  }
 
 }

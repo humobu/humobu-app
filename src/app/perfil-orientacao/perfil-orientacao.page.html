@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-back-outline" color="primary"></ion-back-button>
+      <ion-back-button text="" icon="arrow-back-outline" color="primary" (click)="back()"></ion-back-button>
     </ion-buttons>
     <ion-title>Orientação Sexual</ion-title>
   </ion-toolbar>
@@ -11,41 +11,9 @@
   <ion-row>
     <ion-col size="12">
       <ion-list>
-        <ion-item>
-          <ion-label>Heterosexual</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Gay</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Lésbica</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Bissexual</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Assexual</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Demissexual</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Pansexual</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Queer</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Questionando</ion-label>
-          <ion-checkbox slot="end"></ion-checkbox>
+        <ion-item *ngFor="let orient of orientacao; let i = index">
+          <ion-label>{{orient.descricao}}</ion-label>
+          <ion-checkbox slot="end" [(ngModel)]="orient.selecionado" (ionChange)="updateAnswer(orient.descricao,orient.selecionado)"></ion-checkbox>
         </ion-item>
       </ion-list>
     </ion-col>
