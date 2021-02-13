@@ -5,7 +5,7 @@ import { File, FileEntry } from '@ionic-native/File/ngx';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { GlobalFooService } from '../GlobalFooService';
+import { GlobalFooService } from '../observableData';
 
 @Component({
   selector: 'app-perfil',
@@ -33,18 +33,17 @@ export class PerfilPage {
   private imagens = [{}, {}, {}, {}, {}, {}];
   images = [];
   private indexfoto;
-  private sexo;
+  private sexo = "";
+  private orientacao = "";
 
   async selecionaSexo() {
     try {      
       this.router.navigate(['/tabs/perfil/sexo']);
-      this.globalFooService.getObservable().subscribe((data) => {
-        console.log('Data received', data.sexo);
+      this.globalFooService.getSexo().subscribe((data) => {
         this.sexo = data.sexo;
       });
     } catch (error) {
       console.error(error);
-
       const toast = await this.toastController.create({
         animated: true,
         message: 'Não foi possível selecionar sexo, tente novamente.',
@@ -58,6 +57,16 @@ export class PerfilPage {
   async selecionaOrientacao() {
     try {
       this.router.navigate(["/tabs/perfil/orientacao"]);
+      this.globalFooService.getOrientacao().subscribe((data) => {
+        let orientacoes = data.orientacao;   
+        let sOrientacao = "";     
+        orientacoes.forEach(element => {
+          sOrientacao += element.descricao + ", ";
+        });
+        if(orientacoes){
+          this.orientacao = sOrientacao.trim().slice(0, sOrientacao.trim().length - 1);
+        }
+      });
     } catch (error) {
       console.error(error);
 

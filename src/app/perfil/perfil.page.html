@@ -65,7 +65,7 @@
       <ion-col size="12">
         <ion-item>              
           <ion-icon name="help-outline" class="ion-padding-end"></ion-icon>              
-          <ion-input type="text" maxlength="14" autocapitalize="on" (click)="selecionaOrientacao()" placeholder="Orientação Sexual" readonly></ion-input> 
+          <ion-input type="text" maxlength="100" autocapitalize="on" (click)="selecionaOrientacao()" placeholder="Orientação Sexual" [(ngModel)]="orientacao" readonly></ion-input> 
         </ion-item>
       </ion-col>
       <ion-col size="12">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalFooService } from '../GlobalFooService';
+import { GlobalFooService } from '../observableData';
 import { Orientacao } from '../models/orientacao';
 
 @Component({
@@ -27,13 +27,18 @@ export class PerfilOrientacaoPage {
     new Orientacao (9, "Questionando", false),
   );
 
-  private selected = [];
+  private selecionados : Array<Orientacao> = [];
 
   back() {
-    this.globalFooService.publishSomeData({
-        sexo: this.selected
+    this.globalFooService.postOrientacao({
+        orientacao: this.selecionados
     });
-    console.log(this.selected[0]);
+  }
+
+  updateAnswer(codigo, descricao, selecionado){
+    if(selecionado){      
+     this.selecionados.push(new Orientacao(codigo, descricao, selecionado));
+    }
   }
 
 }

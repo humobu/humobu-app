@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { GlobalFooService } from '../GlobalFooService';
+import { GlobalFooService } from '../observableData';
 
 
 @Component({
@@ -38,7 +38,7 @@ export class PerfilSexoPage {
   }
 
   back() {
-    this.globalFooService.publishSomeData({
+    this.globalFooService.postSexo({
         sexo: this.radioValue
     });
   }

@@ -13,7 +13,7 @@
       <ion-list>
         <ion-item *ngFor="let orient of orientacao; let i = index">
           <ion-label>{{orient.descricao}}</ion-label>
-          <ion-checkbox slot="end" [(ngModel)]="orient.selecionado" (ionChange)="updateAnswer(orient.descricao,orient.selecionado)"></ion-checkbox>
+          <ion-checkbox slot="end" [(ngModel)]="orient.selecionado" (ionChange)="updateAnswer(orient.codigo, orient.descricao, orient.selecionado)"></ion-checkbox>
         </ion-item>
       </ion-list>
     </ion-col>
