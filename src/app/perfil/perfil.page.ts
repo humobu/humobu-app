@@ -31,10 +31,12 @@ export class PerfilPage {
   }
 
   private imagens = [{}, {}, {}, {}, {}, {}];
-  images = [];
   private indexfoto;
   private sexo = "";
-  private orientacao = "";
+  private orientacao = "";  
+  private idadeAtv;
+  private generoAtv;
+  private orientacaoAtv;
 
   async selecionaSexo() {
     try {      
@@ -167,6 +169,18 @@ export class PerfilPage {
       let converted = this.webview.convertFileSrc(img);
       return converted;
     }
+  }
+
+  mostraIdade() {
+    this.idadeAtv = !this.idadeAtv;
+  }
+
+  mostraGenero() {
+    this.generoAtv = !this.generoAtv;
+  }
+
+  mostraOrientacao() {
+    this.orientacaoAtv = !this.orientacaoAtv;
   }
 
 }

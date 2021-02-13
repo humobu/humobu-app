@@ -80,17 +80,17 @@
           </ion-label>
         </ion-item-divider>
           <ion-list>
-            <ion-item>
+            <ion-item (click)="mostraIdade()">
               <ion-label>Mostrar minha idade</ion-label>
-              <ion-toggle slot="end" [(ngModel)]="mostraIdade"></ion-toggle>
+              <ion-toggle slot="end" [(ngModel)]="idadeAtv" (click)="mostraIdade()"></ion-toggle>
             </ion-item>
-            <ion-item>
+            <ion-item (click)="mostraGenero()">
               <ion-label>Mostrar gênero</ion-label>
-              <ion-toggle slot="end" [(ngModel)]="mostraGenero"></ion-toggle>
+              <ion-toggle slot="end" [(ngModel)]="generoAtv" (click)="mostraGenero()"></ion-toggle>
             </ion-item>
-            <ion-item>
+            <ion-item (click)="mostraOrientacao()">
               <ion-label>Mostrar orientação sexual</ion-label>
-              <ion-toggle slot="end" [(ngModel)]="mostraOrientacao"></ion-toggle>
+              <ion-toggle slot="end" [(ngModel)]="orientacaoAtv" (click)="mostraOrientacao()"></ion-toggle>
             </ion-item>
           </ion-list>
       </ion-col>           
