@@ -9,19 +9,19 @@ export class GlobalFooService {
     private sexo = new Subject<string>();
     private orientacao = new Subject<[]>();
 
-    postSexo(data: any) {
+    postSexo(data: string) {
         this.sexo.next(data);
     }
 
-    getSexo(): Subject<any> {
+    getSexo(): Subject<string> {
         return this.sexo;
     }
 
-    postOrientacao(data: any) {
+    postOrientacao(data: []) {
         this.orientacao.next(data);
     }
 
-    getOrientacao(): Subject<any> {
+    getOrientacao(): Subject<[]> {
         return this.orientacao;
     }
 }
